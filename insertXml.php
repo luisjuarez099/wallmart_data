@@ -7,7 +7,7 @@ $username = "root";
 $conn = mysqli_connect($servername, $username, $password, $database); //variable de conexion a la BD
 $ruta = "0000-00-00employeeData.xml"; //ruta del archivo xml 
 if (!$conn) {
-    die("Conexion fallo: " . mysqli_connect_error`());
+    die("Conexion fallo: " . mysqli_connect_error());
 }
 
 
