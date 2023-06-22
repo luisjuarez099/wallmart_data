@@ -39,15 +39,15 @@ foreach ($employees as $employee) {
             while ($row = mysqli_fetch_assoc($result)) {
 
                 // i.e.: DBTableFieldName="userID"
-            echo "<tr>";
-                echo "<td> " . $row["OC"] ."</td>";
-                echo "<td> " . $row["Proveedor"] ."</td>";
-                echo "<td> " . $row["Producto"] ."</td>";             
-                echo "<td> " . $row["Descripcion"] ."</td>";
-                echo "<td> " . $row["Cantidad"] ."</td>";
-                echo "<td> " . $row["FechaEntrega"] ."</td>";
-                echo "<td> " . $row["Precio"] ."</td>";
-            echo "</tr>";
+            
+                echo $row["OC"] ."<br />";
+                echo $row["Proveedor"] ."<br />";
+                echo $row["Producto"] ."<br />";             
+                echo $row["Descripcion"] ."<br />";
+                echo $row["Cantidad"] ."<br />";
+                echo $row["FechaEntrega"] ."<br />";
+                echo $row["Precio"] ."<br />";
+            
             }
             mysqli_free_result($result);
         }

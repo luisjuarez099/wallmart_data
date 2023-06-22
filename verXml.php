@@ -1,6 +1,6 @@
 <?php
 
-$ruta = "0000-00-00employeeData.xml"; //ruta del archivo xml 
+$ruta = "2023-06-12employeeData.xml"; //ruta del archivo xml 
 
 $employees = simplexml_load_file($ruta); //Interprets an XML file into an object
 
