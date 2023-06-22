@@ -40,11 +40,11 @@
               //funcion para insertar en la BD
               $('#insert_data').click(function (){
                 $('#ver_xml').load('insertXml.php');
-                alert("YA INGRESADO LOS DATOS CORRECTAENTE");
+                // alert("YA INGRESADO LOS DATOS CORRECTAENTE");
             });
             $('#select_xml').click(function (){
                 $('#seleccionar_xml').load('subir.html');
-                alert("YA Seleccionado LOS DATOS CORRECTAENTE");
+                // alert("YA Seleccionado LOS DATOS CORRECTAENTE");
             });
         });
     </script>
