@@ -4,7 +4,7 @@ $servername = "localhost";
 $password = "";
 $username = "root";
 
-$conn =new mysqli($servername, $username, $password, $database); //variable de conexion a la BD
+$conn = mysqli_connect($servername, $username, $password, $database); //variable de conexion a la BD
 $ruta = "2023-06-12employeeData.xml"; //ruta del archivo xml 
 if (!$conn) {
     die("Conexion fallo: " . mysqli_connect_error());
@@ -32,6 +32,16 @@ foreach ($employees as $employee) {
     mysqli_query($conn, "SET @p5='" . $employee->FechaEntrega . "'");
     mysqli_query($conn, "SET @p6='" . $employee->Precio . "'");
     mysqli_multi_query($conn, "CALL insert_wm (@p0,@p1,@p2,@p3,@p4,@p5,@p6)");
+    // inserta por todo el xml
+    // try {
+    //     //code...
+    //     mysqli_query($conn, "SET @employees='" .$employees."'");
+    //     mysqli_multi_query($conn, "CALL load_xml (@employees)");
+    // } catch (\Throwable $th) {
+    //     //throw $th;
+    //     echo $th;
+    // }
+    
     while (mysqli_more_results($conn)) {
 
         if ($result = mysqli_store_result($conn)) {
@@ -54,5 +64,4 @@ foreach ($employees as $employee) {
         mysqli_next_result($conn);
 
     }
-
 }
