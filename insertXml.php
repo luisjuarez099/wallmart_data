@@ -6,12 +6,14 @@ $username = "root";
 
 $conn = mysqli_connect($servername, $username, $password, $database); //variable de conexion a la BD
 $ruta = "2023-06-12employeeData.xml"; //ruta del archivo xml 
+
+//comprobacion de la BD
 if (!$conn) {
     die("Conexion fallo: " . mysqli_connect_error());
 }
 
-
 $employees = simplexml_load_file($ruta); //Interprets an XML file into an object
+
 foreach ($employees as $employee) {
     //Imprimir en formato de tabla
     echo "<tr>";
@@ -31,16 +33,11 @@ foreach ($employees as $employee) {
     mysqli_query($conn, "SET @p4='" . $employee->Cantidad . "'");
     mysqli_query($conn, "SET @p5='" . $employee->FechaEntrega . "'");
     mysqli_query($conn, "SET @p6='" . $employee->Precio . "'");
+
+    //pasamos parametros para leer el xml
     mysqli_multi_query($conn, "CALL insert_wm (@p0,@p1,@p2,@p3,@p4,@p5,@p6)");
-    // inserta por todo el xml
-    // try {
-    //     //code...
-    //     mysqli_query($conn, "SET @employees='" .$employees."'");
-    //     mysqli_multi_query($conn, "CALL load_xml (@employees)");
-    // } catch (\Throwable $th) {
-    //     //throw $th;
-    //     echo $th;
-    // }
+
+    
     
     while (mysqli_more_results($conn)) {
 
