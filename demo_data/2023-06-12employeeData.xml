@@ -1,6 +1,6 @@
 <xml>
     <dato>
-        <OC>68</OC>
+        <OC>65</OC>
         <Proveedor>hershey</Proveedor>
         <Producto>chocoW</Producto>
         <Descripcion>Chocolate blanco</Descripcion>
@@ -11,7 +11,7 @@
     <dato>
         <OC>66</OC>
         <Proveedor>ferrero</Proveedor>
-        <Producto>ferrK</Producto>
+        <Producto0>ferrK</Producto0>
         <Descripcion>Ferrero Kinder</Descripcion>
         <Cantidad>200</Cantidad>
         <FechaEntrega>2023-06-12</FechaEntrega>
@@ -28,7 +28,7 @@
     </dato>
     <dato>
         <OC>68</OC>
-        <Proveedor>lindt</Proveedor>
+        <oProveedor>lindt</oProveedor>
         <Producto>lindE</Producto>
         <Descripcion>Lindt Excellence</Descripcion>
         <Cantidad>250</Cantidad>
