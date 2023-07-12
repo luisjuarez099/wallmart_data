@@ -1,0 +1,30 @@
+header{
+display: flex;
+background-color: rgb(0, 113, 206);
+align-items: center;
+}
+.Logo{
+
+    align-items: center;
+    display: flex;
+}
+.Logo img{
+
+    height: 100px;
+}
+h2{
+    
+    color: aliceblue;
+}
+
+footer{
+    
+    background-color: rgb(0, 113, 206);
+    height: 63px;
+    color: aliceblue;
+    clear: both;
+    margin-top: 310px;
+}
+p{
+    text-align: center;
+}

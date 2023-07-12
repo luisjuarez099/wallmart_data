@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html= lang="en">
+    <head>
+        <meta charset="Utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport"content="width=device-width,intial-scale=1.0" /> 
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+        <title> BD Walmart </title>
+        <link rel="stylesheet" href="Westilo.css">
+        
+        <header>
+            <div class="Logo">
+                <img src="WM.png" alt="Logo de walmart">
+                <h2 class="BD">Base de Datos </h2>
+            </div>
+
+        </header>
+
+        </head>
+        <div  style="margin: 5px; ">
+            <label for="Agregar"><strong> Agregar</strong> </label>
+            <input type="file" name="Agregar"id="Agregar">
+        </div>
+        <main>
+
+            <body>
+
+                <section id="contenedor"></section>
+
+                <div class="container">
+                    <div class="row"> </div>
+                </div>    
+
+            <table id="example" class="table table-striped" style="width:100%">
+                <thead>
+
+                <th>OC</th>
+                <th>Provedor</th>
+                <th>Producto</th>   
+                <th>Descripcion</th> 
+                <th>Cantidad</th> 
+                <th>Fecha de entrega</th> 
+                <th>Precio</th> 
+                </thead>    
+
+                <tbody id="ver">
+                
+
+               
+                </tbody>
+                
+
+                
+            </table>
+
+            </body>
+            <a>
+                <button id="leers" >Leer</button>
+                </a>
+                <button id="insert"> Insertar </button>
+        </main>
+
+    <footer class="footer">
+       <nav> <p> Equipo: Yael Uziel de Torre Flores, Mayra Vianey Rodrigez Lopez, Luis Juarez Corona, Jose Francisco, Jose Enrique Fernandez Ortega </p></nav>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"> </script> 
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"> </script> 
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"> </script> 
+    <script src="./app.js"> </script>
+
+    <script type="text/javascript">
+        $ (function (){
+
+            $('#leers').click(function (){
+                $('#ver').load('informacion.php');
+            });
+            $('#insert').click(function (){
+                $('#ver').load('insertar.php');
+            });
+        });
+    </script>
+</html>
