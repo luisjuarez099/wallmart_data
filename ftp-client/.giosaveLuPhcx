@@ -45,8 +45,8 @@ while (true) {
 
             // delete files from ftp and local
             echo "INFO: Deleting file " . FTP_RMTE . " from ftp server...\n";
-            unlink(FTP_LCAL);//borrar en local
-            unlink("/opt/lampp/htdocs/UNEDL_PIV_2023A/phpWalmart/ftp-server/".FTP_RMTE);//borrar en ftp_server
+            unlink("/opt/lampp/htdocs/UNEDL_PIV_2023A/phpWalmart/ftp-client/".FTP_LCAL);
+            unlink("/opt/lampp/htdocs/UNEDL_PIV_2023A/phpWalmart/ftp-server/".FTP_RMTE);
         }
         else
             echo "ERROR: File download failed!\n";
