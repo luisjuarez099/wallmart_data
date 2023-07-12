@@ -12,10 +12,12 @@ if (!$conn) {
     die("Conexion fallo: " . mysqli_connect_error());
 }
 
+// TODO: read from db
 $employees = simplexml_load_file($ruta); //Interprets an XML file into an object
-
+ 
 foreach ($employees as $employee) {
-    //Imprimir en formato de tabla
+
+	// create new row into HTML
     echo "<tr>";
         echo "<td> " . $employee->OC . "</td>";
         echo "<td> " . $employee->Proveedor . " </td>";
@@ -25,7 +27,9 @@ foreach ($employees as $employee) {
         echo "<td> " . $employee->FechaEntrega . " </td>";
         echo "<td> " . $employee->Precio . " </td>";
     echo "</tr>";
-
+    
+    	// TODO: move to database.php
+	// call store procedure
     mysqli_query($conn, "SET @p0='" . $employee->OC . "'");
     mysqli_query($conn, "SET @p1='" . $employee->Proveedor . "'");
     mysqli_query($conn, "SET @p2='" . $employee->Producto . "'");
@@ -34,31 +38,6 @@ foreach ($employees as $employee) {
     mysqli_query($conn, "SET @p5='" . $employee->FechaEntrega . "'");
     mysqli_query($conn, "SET @p6='" . $employee->Precio . "'");
 
-    //pasamos parametros para leer el xml
+    // set args for store procedure call
     mysqli_multi_query($conn, "CALL insert_wm (@p0,@p1,@p2,@p3,@p4,@p5,@p6)");
-
-    
-    
-    while (mysqli_more_results($conn)) {
-
-        if ($result = mysqli_store_result($conn)) {
-
-            while ($row = mysqli_fetch_assoc($result)) {
-
-                // i.e.: DBTableFieldName="userID"
-            
-                echo $row["OC"] ."<br />";
-                echo $row["Proveedor"] ."<br />";
-                echo $row["Producto"] ."<br />";             
-                echo $row["Descripcion"] ."<br />";
-                echo $row["Cantidad"] ."<br />";
-                echo $row["FechaEntrega"] ."<br />";
-                echo $row["Precio"] ."<br />";
-            
-            }
-            mysqli_free_result($result);
-        }
-        mysqli_next_result($conn);
-
-    }
 }
