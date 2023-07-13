@@ -1,5 +1,6 @@
 <?php
 
+// TODO: delete this file if needed
 $xmlString =
 '<note>
 <to>Tove</to>
