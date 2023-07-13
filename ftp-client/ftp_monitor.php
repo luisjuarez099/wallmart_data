@@ -1,7 +1,7 @@
 <?php
 
-require "readxml.php";
-require "database.php";
+require "read-xml-order.php";
+require "connection.php";
 
 const FTP_HOST = 'localhost';
 const FTP_USER = 'ftp_user';
