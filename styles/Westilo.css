@@ -1,0 +1,78 @@
+header{
+display: flex;
+background-color: rgb(0, 113, 206);
+align-items: center;
+}
+.Logo{
+
+    align-items: center;
+    display: flex;
+}
+.Logo img{
+
+    height: 100px;
+}
+h2{
+    
+    color: aliceblue;
+}
+
+footer{
+    
+    background-color:rgb(0, 113, 206);
+    height: 63px;
+    color: aliceblue;
+    clear: both;
+    margin-top: 472px; /* 440*/
+}
+p{
+    text-align: center;
+}
+main {
+background-color: rgb(160, 160, 160);
+}
+
+button{
+background-color: rgb(41, 41, 38);
+color: white;
+}
+label{
+    
+    color: rgb(0, 113, 206);
+}
+.file-select {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .file-select::before {
+    background-color: rgb(33, 32, 27);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Seleccionar'; /* testo por defecto */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  .file-select input[type="file"] {
+    opacity: 0;
+    width: 200px;
+    height: 32px;
+    display: inline-block;
+  }
+  
+  #src-file1::before {
+    content: 'Seleccionar Archivo ';
+  }
+  
+  .table{
+    border: 5px  ;
+    border-color:black;
+  }
+
