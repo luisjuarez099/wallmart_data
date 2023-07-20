@@ -1,6 +1,6 @@
 <?php
 
-require "read-xml-order.php";
+require "../php/read-xml-order.php";
 require "../php/put-orders.php";
 
 const FTP_HOST = 'localhost';
