@@ -7,6 +7,7 @@ require "db-conn.php";
  * @param data assosiative array containing the order data
  */
 function insertOC($data) {
+try {
     echo "INFO: Inserting data into DB...\n";
 
     $connection = start_connection();
@@ -31,13 +32,18 @@ function insertOC($data) {
         mysqli_query($connection, "SET @p6='" . $precio . "'");
 
         // Call store procedure
-        mysqli_multi_query($conn, "CALL insert_wm (@p0,@p1,@p2,@p3,@p4,@p5,@p6)");
+        $success=mysqli_multi_query($connection, "CALL insert_wm (@p0,@p1,@p2,@p3,@p4,@p5,@p6)");
 
         // If query fail send error
-        if ($connection->query($query) === true)
+        if ($success === true)
             echo "INFO: New order recorded to DB!\n";
         else
             echo "ERROR: Could not insert order into DB! :(\n" . $connection->error;
+    } 
+
+} catch (Exception $e) {
+    echo "Error expetion $e";
+
     }
 
     echo "Done!\n";
