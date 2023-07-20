@@ -3,7 +3,7 @@
 $con = mysqli_connect('localhost', 'root', '', 'wm_bd');
 
 
-$query = "SELECT * FROM oc_logs";
+// $query = "SELECT * FROM oc_logs";
 $exec = mysqli_query($con, $query);
 while ($row = mysqli_fetch_array($exec)) {
     echo "Informacion de los pedidos " . " [' " . $row['OC'] . " '," . $row['Proveedor'] . "'," . $row['Producto'] . " ]";
@@ -41,7 +41,7 @@ $con = mysqli_connect('localhost', 'root', '', 'oc_logs');
 
                 ['FechaHoy'],
                 <?php
-                $query = "SELECT  FechaHoy from oc_logs";
+                $query = "SELECT  COUNT(*) from bien";
 
                 $exec = mysqli_query($con, $query);
                 while ($row = mysqli_fetch_array($exec)) {

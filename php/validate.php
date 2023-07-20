@@ -6,8 +6,9 @@ $xmlString =
 <to>Tove</to>
 <from>Jani</from>
 <heading>Reminder</heading>
-<bo>Dont forget me this weekend!</bodkpmy>
-</note>'; // Aquí debes proporcionar tu cadena XML
+<bo>Dont forget me this weekend!</bo>
+</note>'; 
+// Aquí debes proporcionar tu cadena XML
 
 $dom = new DOMDocument(); //Representa un documento HTML o XML en su totalidad; sirve como raíz del árbol de documento. 
 

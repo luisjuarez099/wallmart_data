@@ -42,7 +42,7 @@ while (true) {
             // extract and insert data to db
             $data = get_xml_data(LOCAL_FILE);
             insertOC($data);
-
+            
             // delete files from ftp and local
             echo "INFO: Deleting file " . REMOTE_FILE . " from ftp server...\n";
             unlink(LOCAL_FILE);

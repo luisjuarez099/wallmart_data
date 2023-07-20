@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<xml>
+    <dato>
+        <OC>1</OC>
+        <Proveedor>sabritas</Proveedor>
+        <Descripcion>papas</Descripcion>
+        <Cantidad>1</Cantidad>
+        <FechaEntrega>2008-05-31</FechaEntrega>
+        <Precio>20.00</Precio>
+    </dato>
+    <dato>
+        <OC>2</OC>
+        <Proveedor></Proveedor>
+        <Producto>papas</Producto>
+        <Descripcion>papas</Descripcion>
+        <Cantidad>1</Cantidad>
+        <FechaEntrega>2008-03-02</FechaEntrega>
+        <Precio>15.00</Precio>
+    </dato>
+    <dato>
+        <OC>3</OC>
+        <Proveedor>leones</Proveedor>
+        <Producto>fritos</Producto>
+        <Descripcion>papas</Descripcion>
+        <Cantidad>8</Cantidad>
+        <FechaEntrega>2018-03-02</Fentrega>
+        <Precio>12.00</Precio>
+    </dato>
+</xml>

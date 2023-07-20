@@ -38,6 +38,8 @@ try {
         // If query fail send error
         if ($success)
             echo "INFO: New order recorded to DB!\n";
+            //x
+
         else
             echo "ERROR: Could not insert order into DB! :(\n" . $connection->error;
     } 
