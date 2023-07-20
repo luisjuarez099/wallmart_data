@@ -36,7 +36,7 @@ while (true) {
         echo "INFO: Downloading file from FTP...\n";
     
         // download file
-        if (copy('ftp-server/'.REMOTE_FILE, LOCAL_FILE)) {
+        if (copy('../ftp-server/'.REMOTE_FILE, LOCAL_FILE)) {
             echo "INFO: File download success!\n";
 
             // extract and insert data to db
@@ -46,7 +46,7 @@ while (true) {
             // delete files from ftp and local
             echo "INFO: Deleting file " . REMOTE_FILE . " from ftp server...\n";
             unlink(LOCAL_FILE);
-            unlink("/opt/lampp/htdocs/UNEDL_PIV_2023A/phpWalmart/ftp-server/".REMOTE_FILE);
+            unlink("../ftp-server/".REMOTE_FILE);
         }
         else
             echo "ERROR: File download failed!\n";
