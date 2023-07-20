@@ -1,11 +1,12 @@
 <?php
 
+// TODO: delete this file if needed
 $xmlString =
 '<note>
 <to>Tove</to>
-<from>Jani</from> 
+<from>Jani</from>
 <heading>Reminder</heading>
-<body>Dont forget me this weekend!</body>
+<bo>Dont forget me this weekend!</bodkpmy>
 </note>'; // Aquí debes proporcionar tu cadena XML
 
 $dom = new DOMDocument(); //Representa un documento HTML o XML en su totalidad; sirve como raíz del árbol de documento. 
