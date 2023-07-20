@@ -7,6 +7,7 @@ require "db-conn.php";
  * @param data assosiative array containing the order data
  */
 function insertOC($data) {
+try {
     echo "INFO: Inserting data into DB...\n";
 
     // TODO: surround with try catch
@@ -39,6 +40,11 @@ function insertOC($data) {
             echo "INFO: New order recorded to DB!\n";
         else
             echo "ERROR: Could not insert order into DB! :(\n" . $connection->error;
+    } 
+
+} catch (Exception $e) {
+    echo "Error expetion $e";
+
     }
 
     echo "Done!\n";
