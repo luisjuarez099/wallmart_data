@@ -1,85 +1,54 @@
 <?php
-//requerimos la conexion de la bd
-$con = mysqli_connect('localhost', 'root', '', 'wm_bd');
+
+$host = "localhost"; // Dirección del servidor de la base de datos
+$username = "root"; // Nombre de usuario de la base de datos
+$passwd = ""; // Contraseña de la base de datos
+$dbname = "wm_bd"; // Nombre de la base de datos
+
+$conn = new mysqli($host, $username, $passwd, $dbname);
 
 
-// $query = "SELECT * FROM oc_logs";
-$exec = mysqli_query($con, $query);
-while ($row = mysqli_fetch_array($exec)) {
-    echo "Informacion de los pedidos " . " [' " . $row['OC'] . " '," . $row['Proveedor'] . "'," . $row['Producto'] . " ]";
+
+$cont ="SELECT COUNT(*) FROM count_trigger";
+// Ejecutar la consulta
+$resultado = $conn->query($cont);
+
+// Verificar si la consulta se ejecutó correctamente
+if ($resultado) {
+    // Obtener el valor del resultado
+    $row = $resultado->fetch_assoc();
+    $totalRegistros = $row['COUNT(*)'];
+
+    echo "El número total de registros en la tabla count_trigger es: " . $totalRegistros;
+} else {
+    echo "Error al ejecutar la consulta: " . $conn->error;
 }
-
-
-// Ahora todo el código junto usando pie chart
-
-
-$con = mysqli_connect('localhost', 'root', '', 'oc_logs');
-
 ?>
 
-
 <html>
-
-<head>
-    <!--Load the AJAX API-->
+  <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-
-        // Load the Visualization API and the corechart package.
-        google.charts.load('current', { 'packages': ['corechart'] });
-
-        // Set a callback to run when the Google Visualization API is loaded.
-        google.charts.setOnLoadCallback(drawChart);
-
-        // Callback that creates and populates a data table,
-        // instantiates the pie chart, passes in the data and
-        // draws it.
-        function drawChart() {
-
-            // Create the data table.
-            var data = google.visualization.arrayToDataTable([
-
-                ['FechaHoy'],
-                <?php
-                $query = "SELECT  COUNT(*) from bien";
-
-                $exec = mysqli_query($con, $query);
-                while ($row = mysqli_fetch_array($exec)) {
-
-                    echo "['" . $row['FechaHoy'] . "']";
-                }
-                ?>
-
-            ]);
-            // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
-          ['Mushrooms', 3],
-          ['Onions', 1],
-          ['Olives', 1],
-          ['Zucchini', 1],
-          ['Pepperoni', 2]
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var totalRegistro = <?php echo $totalRegistros; ?>;
+        var data = google.visualization.arrayToDataTable([
+          ['bien', 'inertados correctamente'],
+          ['bien',     totalRegistro],
         ]);
 
-            // Set chart options
-            var options = {
-                'title': 'Ordenes Por dia',
-                'width': 400,
-                'height': 300
-            };
+        var options = {
+          title: 'My Daily Activities',
+          is3D: true,
+        };
 
-            // Instantiate and draw our chart, passing in some options.
-            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
-        }
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
     </script>
-</head>
-
-<body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
-</body>
-
+  </head>
+  <body>
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+  </body>
 </html>
