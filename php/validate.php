@@ -27,5 +27,7 @@ if ($dom->loadXML($xmlString) === false) {
     echo "El XML es aceptado.";
 }
 
+function error_xml(){
 
+}
 

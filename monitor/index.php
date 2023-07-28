@@ -10,15 +10,20 @@ $conn = new mysqli($host, $username, $passwd, $dbname);
 
 
 $cont = "SELECT COUNT(*) FROM count_trigger";
+$cont_error = "SELECT COUNT(*) FROM table_errors";
+
 // Ejecutar la consulta
 $resultado = $conn->query($cont);
-
+$ressultado_error=$conn->query($cont_error);
 // Verificar si la consulta se ejecutó correctamente
 if ($resultado) {
   // Obtener el valor del resultado
   $row = $resultado->fetch_assoc();
   $totalRegistros = $row['COUNT(*)'];
-  //envio de correo 
+
+  $row_errors=$ressultado_error->fetch_assoc();
+  $totalErrors=$row_errors['COUNT(*)'];
+  //envio de correo
   
   $comando = ' ssmtp luisjuarezcc9@gmail.com < ../demo_data/mail.txt'; // Ejemplo de comando (listar archivos y directorios)
 
@@ -43,9 +48,11 @@ if ($resultado) {
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
       var totalRegistro = <?php echo $totalRegistros; ?>;
+      var var_errors = <?php echo $totalErrors?>;
       var data = google.visualization.arrayToDataTable([
         ['bien', 'inertados correctamente'],
         ['bien', totalRegistro],
+        ['mal', var_errors]
       ]);
 
       var options = {

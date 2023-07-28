@@ -6,10 +6,11 @@ require "db-conn.php";
  * Receives an associative array containing the order data and inserts the data into the database
  * @param data assosiative array containing the order data
  */
+
 function insertOC($data) {
 try {
     echo "INFO: Inserting data into DB...\n";
-
+    
     // TODO: surround with try catch
     $connection = start_connection();
     foreach ($data as $elem) {
@@ -36,12 +37,14 @@ try {
         $success = mysqli_multi_query($connection, "CALL insert_wm (@p0,@p1,@p2,@p3,@p4,@p5,@p6)");
 
         // If query fail send error
-        if ($success)
+        if ($success){
             echo "INFO: New order recorded to DB!\n";
-            //x
-
-        else
-            echo "ERROR: Could not insert order into DB! :(\n" . $connection->error;
+        }
+        else{
+            $var_error++;
+            echo "ERROR: Could not insert order into DB! :( \n" . $connection->error;
+        }
+            
     } 
 
 } catch (Exception $e) {
